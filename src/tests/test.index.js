@@ -1,7 +1,7 @@
 const units = require('../index.js'); // eslint-disable-line
 const BigNumber = require('bn.js'); // eslint-disable-line
 const ActualBigNumber = require('bignumber.js');
-const Web3 = require('web3'); // eslint-disable-line
+const Web3 = require('@vapory/web3'); // eslint-disable-line
 const web3 = new Web3(); // eslint-disable-line
 const assert = require('chai').assert; // eslint-disable-line
 const totalTypes = Object.keys(units.unitMap).length;

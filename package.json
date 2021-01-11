@@ -151,7 +151,7 @@
     "lint-staged": "1.0.1",
     "mocha": "3.1.2",
     "pre-commit": "1.1.3",
-    "@vapory/web3": "0.17.0-beta"
+    "@vapory/web3": "0.20.4"
   },
   "keywords": [
     "vapory",
