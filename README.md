@@ -1,32 +1,32 @@
-## ethjs-unit
+## vapjs-unit
 
 <div>
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-unit">
-    <img src="https://david-dm.org/ethjs/ethjs-unit.svg"
+  <a href="https://david-dm.org/vapjs/vapjs-unit">
+    <img src="https://david-dm.org/vapjs/vapjs-unit.svg"
     alt="Dependency Status" />
   </a>
 
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-unit#info=devDependencies">
-    <img src="https://david-dm.org/ethjs/ethjs-unit/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/vapjs/vapjs-unit#info=devDependencies">
+    <img src="https://david-dm.org/vapjs/vapjs-unit/dev-status.svg" alt="devDependency Status" />
   </a>
 
   <!-- Build Status -->
-  <a href="https://travis-ci.org/ethjs/ethjs-unit">
-    <img src="https://travis-ci.org/ethjs/ethjs-unit.svg"
+  <a href="https://travis-ci.org/vapjs/vapjs-unit">
+    <img src="https://travis-ci.org/vapjs/vapjs-unit.svg"
     alt="Build Status" />
   </a>
 
   <!-- NPM Version -->
-  <a href="https://www.npmjs.org/package/ethjs-unit">
-    <img src="http://img.shields.io/npm/v/ethjs-unit.svg"
+  <a href="https://www.npmjs.org/package/vapjs-unit">
+    <img src="http://img.shields.io/npm/v/vapjs-unit.svg"
     alt="NPM version" />
   </a>
 
   <!-- Test Coverage -->
-  <a href="https://coveralls.io/r/ethjs/ethjs-unit">
-    <img src="https://coveralls.io/repos/github/ethjs/ethjs-unit/badge.svg" alt="Test Coverage" />
+  <a href="https://coveralls.io/r/vapjs/vapjs-unit">
+    <img src="https://coveralls.io/repos/github/vapjs/vapjs-unit/badge.svg" alt="Test Coverage" />
   </a>
 
   <!-- Javascript Style -->
@@ -37,37 +37,37 @@
 
 <br />
 
-A simple module for handling Ethereum unit convertion.
+A simple module for handling Vapory unit convertion.
 
 ## Install
 
 ```
-npm install --save ethjs-unit
+npm install --save vapjs-unit
 ```
 
 ## Usage
 
 ```js
-const unit = require('ethjs-unit');
+const unit = require('vapjs-unit');
 
-var val1 = unit.toWei(249824778, 'ether');
+var val1 = unit.toWei(249824778, 'vapor');
 
 // result <BN ...> 249824778000000000000000000
 
-var val2 = unit.fromWei('249824778000000000000000000', 'ether');
+var val2 = unit.fromWei('249824778000000000000000000', 'vapor');
 
 // result '249824778'
 ```
 
 ## About
 
-A port from the `web3.js` library, that just handles the unit convertion between the various types of Ethereum currency units.
+A port from the `web3.js` library, that just handles the unit convertion between the various types of Vapory currency units.
 
 Note, the `toWei` returns a BN instance while `fromWei` always returns a string number.
 
 ## Amorphic Data Formatting
 
-`ethjs-unit` uses the [number-to-bn](http://github.com/silentcicero/number-to-bn) module to format all number values (hex or otherwise) into digestable BN.js number instances.
+`vapjs-unit` uses the [number-to-bn](http://github.com/silentcicero/number-to-bn) module to format all number values (hex or otherwise) into digestable BN.js number instances.
 
 ## Methods Available & Objects
 
@@ -85,39 +85,39 @@ fromWei         <Function (value, unit) : (String)>
 'kwei':         '1000',
 'Kwei':         '1000',
 'babbage':      '1000',
-'femtoether':   '1000',
+'femtovapor':   '1000',
 'mwei':         '1000000',
 'Mwei':         '1000000',
 'lovelace':     '1000000',
-'picoether':    '1000000',
+'picovapor':    '1000000',
 'gwei':         '1000000000',
 'Gwei':         '1000000000',
 'shannon':      '1000000000',
-'nanoether':    '1000000000',
+'nanovapor':    '1000000000',
 'nano':         '1000000000',
 'szabo':        '1000000000000',
-'microether':   '1000000000000',
+'microvapor':   '1000000000000',
 'micro':        '1000000000000',
 'finney':       '1000000000000000',
-'milliether':   '1000000000000000',
+'millivapor':   '1000000000000000',
 'milli':        '1000000000000000',
-'ether':        '1000000000000000000',
-'kether':       '1000000000000000000000',
+'vapor':        '1000000000000000000',
+'kvapor':       '1000000000000000000000',
 'grand':        '1000000000000000000000',
-'mether':       '1000000000000000000000000',
-'gether':       '1000000000000000000000000000',
-'tether':       '1000000000000000000000000000000'
+'mvapor':       '1000000000000000000000000',
+'gvapor':       '1000000000000000000000000000',
+'tvapor':       '1000000000000000000000000000000'
 ```
 
 ## Why BN.js?
 
-`ethjs` has made a policy of using `BN.js` accross all of our modules. Here are some reasons why:
+`vapjs` has made a policy of using `BN.js` accross all of our modules. Here are some reasons why:
 
   1. Lighter than alternatives (BigNumber.js)
   2. Faster than most alternatives, see [benchmarks](https://github.com/indutny/bn.js/issues/89)
-  3. Used by the Ethereum foundation across all [`ethereumjs`](https://github.com/ethereumjs) repositories
-  4. Is already used by a critical JS dependency of many ethereum packages, see package [`elliptic`](https://github.com/indutny/elliptic)
-  5. Does not support decimals or floats (for greater precision), remember, the Ethereum blockchain cannot and will not support float values or decimal numbers
+  3. Used by the Vapory foundation across all [`vaporyjs`](https://github.com/vaporycojs) repositories
+  4. Is already used by a critical JS dependency of many vapory packages, see package [`elliptic`](https://github.com/indutny/elliptic)
+  5. Does not support decimals or floats (for greater precision), remember, the Vapory blockchain cannot and will not support float values or decimal numbers
 
 ## Contributing
 
@@ -125,32 +125,32 @@ Please help better the ecosystem by submitting issues and pull requests to defau
 
 ## Guides
 
-You'll find more detailed information on using `ethjs-unit` and tailoring it to your needs in our guides:
+You'll find more detailed information on using `vapjs-unit` and tailoring it to your needs in our guides:
 
 - [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
-- [Developer guide](docs/developer-guide.md) - Contributing to `ethjs-unit`, writing coverage and updates.
+- [Developer guide](docs/developer-guide.md) - Contributing to `vapjs-unit`, writing coverage and updates.
 
 ## Help out
 
 There is always a lot of work to do, and will have many rules to maintain. So please help out in any way that you can:
 
-- Create, enhance, and debug ethjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
+- Create, enhance, and debug vapjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
 - Improve documentation.
 - Chime in on any open issue or pull request.
-- Open new issues about your ideas for making `ethjs-unit` better, and pull requests to show us how your idea works.
+- Open new issues about your ideas for making `vapjs-unit` better, and pull requests to show us how your idea works.
 - Add new tests to *absolutely anything*.
 - Create or contribute to ecosystem tools, like modules for encoding or contracts.
 - Spread the word.
 
 Please consult our [Code of Conduct](CODE_OF_CONDUCT.md) docs before helping out.
 
-We communicate via [issues](https://github.com/ethjs/ethjs-unit/issues) and [pull requests](https://github.com/ethjs/ethjs-unit/pulls).
+We communicate via [issues](https://github.com/vapjs/vapjs-unit/issues) and [pull requests](https://github.com/vapjs/vapjs-unit/pulls).
 
 ## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [License](https://raw.githubusercontent.com/ethjs/ethjs-unit/master/LICENSE)
+- [License](https://raw.githubusercontent.com/vapjs/vapjs-unit/master/LICENSE)
 
 ## Licence
 

@@ -3,11 +3,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("ethUnit", [], factory);
+		define("vapUnit", [], factory);
 	else if(typeof exports === 'object')
-		exports["ethUnit"] = factory();
+		exports["vapUnit"] = factory();
 	else
-		root["ethUnit"] = factory();
+		root["vapUnit"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -5356,50 +5356,50 @@ var numberToBN = __webpack_require__(2);
 var zero = new BN(0);
 var negative1 = new BN(-1);
 
-// complete ethereum unit map
+// complete vapory unit map
 var unitMap = {
-  'noether': '0', // eslint-disable-line
+  'novapor': '0', // eslint-disable-line
   'wei': '1', // eslint-disable-line
   'kwei': '1000', // eslint-disable-line
   'Kwei': '1000', // eslint-disable-line
   'babbage': '1000', // eslint-disable-line
-  'femtoether': '1000', // eslint-disable-line
+  'femtovapor': '1000', // eslint-disable-line
   'mwei': '1000000', // eslint-disable-line
   'Mwei': '1000000', // eslint-disable-line
   'lovelace': '1000000', // eslint-disable-line
-  'picoether': '1000000', // eslint-disable-line
+  'picovapor': '1000000', // eslint-disable-line
   'gwei': '1000000000', // eslint-disable-line
   'Gwei': '1000000000', // eslint-disable-line
   'shannon': '1000000000', // eslint-disable-line
-  'nanoether': '1000000000', // eslint-disable-line
+  'nanovapor': '1000000000', // eslint-disable-line
   'nano': '1000000000', // eslint-disable-line
   'szabo': '1000000000000', // eslint-disable-line
-  'microether': '1000000000000', // eslint-disable-line
+  'microvapor': '1000000000000', // eslint-disable-line
   'micro': '1000000000000', // eslint-disable-line
   'finney': '1000000000000000', // eslint-disable-line
-  'milliether': '1000000000000000', // eslint-disable-line
+  'millivapor': '1000000000000000', // eslint-disable-line
   'milli': '1000000000000000', // eslint-disable-line
-  'ether': '1000000000000000000', // eslint-disable-line
-  'kether': '1000000000000000000000', // eslint-disable-line
+  'vapor': '1000000000000000000', // eslint-disable-line
+  'kvapor': '1000000000000000000000', // eslint-disable-line
   'grand': '1000000000000000000000', // eslint-disable-line
-  'mether': '1000000000000000000000000', // eslint-disable-line
-  'gether': '1000000000000000000000000000', // eslint-disable-line
-  'tether': '1000000000000000000000000000000' };
+  'mvapor': '1000000000000000000000000', // eslint-disable-line
+  'gvapor': '1000000000000000000000000000', // eslint-disable-line
+  'tvapor': '1000000000000000000000000000000' };
 
 /**
  * Returns value of unit in Wei
  *
  * @method getValueOfUnit
- * @param {String} unit the unit to convert to, default ether
+ * @param {String} unit the unit to convert to, default vapor
  * @returns {BigNumber} value of the unit (in Wei)
  * @throws error if the unit is not correct:w
  */
 function getValueOfUnit(unitInput) {
-  var unit = unitInput ? unitInput.toLowerCase() : 'ether';
+  var unit = unitInput ? unitInput.toLowerCase() : 'vapor';
   var unitValue = unitMap[unit]; // eslint-disable-line
 
   if (typeof unitValue !== 'string') {
-    throw new Error('[ethjs-unit] the unit provided ' + unitInput + ' doesn\'t exists, please use the one of the following units ' + JSON.stringify(unitMap, null, 2));
+    throw new Error('[vapjs-unit] the unit provided ' + unitInput + ' doesn\'t exists, please use the one of the following units ' + JSON.stringify(unitMap, null, 2));
   }
 
   return new BN(unitValue, 10);
@@ -5460,25 +5460,25 @@ function fromWei(weiInput, unit, optionsInput) {
   return value;
 }
 
-function toWei(etherInput, unit) {
-  var ether = numberToString(etherInput); // eslint-disable-line
+function toWei(vaporInput, unit) {
+  var vapor = numberToString(vaporInput); // eslint-disable-line
   var base = getValueOfUnit(unit);
   var baseLength = unitMap[unit].length - 1 || 1;
 
   // Is it negative?
-  var negative = ether.substring(0, 1) === '-'; // eslint-disable-line
+  var negative = vapor.substring(0, 1) === '-'; // eslint-disable-line
   if (negative) {
-    ether = ether.substring(1);
+    vapor = vapor.substring(1);
   }
 
-  if (ether === '.') {
-    throw new Error('[ethjs-unit] while converting number ' + etherInput + ' to wei, invalid value');
+  if (vapor === '.') {
+    throw new Error('[vapjs-unit] while converting number ' + vaporInput + ' to wei, invalid value');
   }
 
   // Split it into a whole and fractional part
-  var comps = ether.split('.'); // eslint-disable-line
+  var comps = vapor.split('.'); // eslint-disable-line
   if (comps.length > 2) {
-    throw new Error('[ethjs-unit] while converting number ' + etherInput + ' to wei,  too many decimal points');
+    throw new Error('[vapjs-unit] while converting number ' + vaporInput + ' to wei,  too many decimal points');
   }
 
   var whole = comps[0],
@@ -5491,7 +5491,7 @@ function toWei(etherInput, unit) {
     fraction = '0';
   }
   if (fraction.length > baseLength) {
-    throw new Error('[ethjs-unit] while converting number ' + etherInput + ' to wei, too many decimal places');
+    throw new Error('[vapjs-unit] while converting number ' + vaporInput + ' to wei, too many decimal places');
   }
 
   while (fraction.length < baseLength) {
@@ -5833,4 +5833,4 @@ module.exports = function(module) {
 /******/ ])
 });
 ;
-//# sourceMappingURL=ethjs-unit.js.map
+//# sourceMappingURL=vapjs-unit.js.map

@@ -41,10 +41,10 @@ describe('toWei', () => {
   it('should handle edge cases', () => {
     assert.equal(units.toWei(0, 'wei').toString(10), '0');
     assert.equal(units.toWei('0.0', 'wei').toString(10), '0');
-    assert.equal(units.toWei('.3', 'ether').toString(10), '300000000000000000');
+    assert.equal(units.toWei('.3', 'vapor').toString(10), '300000000000000000');
     assert.throws(() => units.toWei('.', 'wei'), Error);
-    assert.throws(() => units.toWei('1.243842387924387924897423897423', 'ether'), Error);
-    assert.throws(() => units.toWei('8723.98234.98234', 'ether'), Error);
+    assert.throws(() => units.toWei('1.243842387924387924897423897423', 'vapor'), Error);
+    assert.throws(() => units.toWei('8723.98234.98234', 'vapor'), Error);
   });
 
   it('should return the correct value', () => {
@@ -60,17 +60,17 @@ describe('toWei', () => {
     assert.equal(units.toWei(1, 'shannon').toString(10), '1000000000');
     assert.equal(units.toWei(1, 'szabo').toString(10), '1000000000000');
     assert.equal(units.toWei(1, 'finney').toString(10), '1000000000000000');
-    assert.equal(units.toWei(1, 'ether').toString(10), '1000000000000000000');
-    assert.equal(units.toWei(1, 'kether').toString(10), '1000000000000000000000');
+    assert.equal(units.toWei(1, 'vapor').toString(10), '1000000000000000000');
+    assert.equal(units.toWei(1, 'kvapor').toString(10), '1000000000000000000000');
     assert.equal(units.toWei(1, 'grand').toString(10), '1000000000000000000000');
-    assert.equal(units.toWei(1, 'mether').toString(10), '1000000000000000000000000');
-    assert.equal(units.toWei(1, 'gether').toString(10), '1000000000000000000000000000');
-    assert.equal(units.toWei(1, 'tether').toString(10), '1000000000000000000000000000000');
+    assert.equal(units.toWei(1, 'mvapor').toString(10), '1000000000000000000000000');
+    assert.equal(units.toWei(1, 'gvapor').toString(10), '1000000000000000000000000000');
+    assert.equal(units.toWei(1, 'tvapor').toString(10), '1000000000000000000000000000000');
 
-    assert.equal(units.toWei(1, 'kwei').toString(10), units.toWei(1, 'femtoether').toString(10));
-    assert.equal(units.toWei(1, 'szabo').toString(10), units.toWei(1, 'microether').toString(10));
-    assert.equal(units.toWei(1, 'finney').toString(10), units.toWei(1, 'milliether').toString(10));
-    assert.equal(units.toWei(1, 'milli').toString(10), units.toWei(1, 'milliether').toString(10));
+    assert.equal(units.toWei(1, 'kwei').toString(10), units.toWei(1, 'femtovapor').toString(10));
+    assert.equal(units.toWei(1, 'szabo').toString(10), units.toWei(1, 'microvapor').toString(10));
+    assert.equal(units.toWei(1, 'finney').toString(10), units.toWei(1, 'millivapor').toString(10));
+    assert.equal(units.toWei(1, 'milli').toString(10), units.toWei(1, 'millivapor').toString(10));
     assert.equal(units.toWei(1, 'milli').toString(10), units.toWei(1000, 'micro').toString(10));
 
     assert.throws(() => { units.toWei(1, 'wei1'); }, Error);
@@ -115,12 +115,12 @@ describe('fromWei', () => {
     assert.equal(units.fromWei(1000000000000000000, 'gwei'), '1000000000');
     assert.equal(units.fromWei(1000000000000000000, 'szabo'), '1000000');
     assert.equal(units.fromWei(1000000000000000000, 'finney'), '1000');
-    assert.equal(units.fromWei(1000000000000000000, 'ether'), '1');
-    assert.equal(units.fromWei(1000000000000000000, 'kether'), '0.001');
+    assert.equal(units.fromWei(1000000000000000000, 'vapor'), '1');
+    assert.equal(units.fromWei(1000000000000000000, 'kvapor'), '0.001');
     assert.equal(units.fromWei(1000000000000000000, 'grand'), '0.001');
-    assert.equal(units.fromWei(1000000000000000000, 'mether'), '0.000001');
-    assert.equal(units.fromWei(1000000000000000000, 'gether'), '0.000000001');
-    assert.equal(units.fromWei(1000000000000000000, 'tether'), '0.000000000001');
+    assert.equal(units.fromWei(1000000000000000000, 'mvapor'), '0.000001');
+    assert.equal(units.fromWei(1000000000000000000, 'gvapor'), '0.000000001');
+    assert.equal(units.fromWei(1000000000000000000, 'tvapor'), '0.000000000001');
   });
 });
 

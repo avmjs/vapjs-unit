@@ -1,8 +1,8 @@
 var webpack = require('webpack'); // eslint-disable-line
 
 var env = process.env.NODE_ENV;   // eslint-disable-line
-var filename = 'ethjs-unit';      // eslint-disable-line
-var library = 'ethUnit';          // eslint-disable-line
+var filename = 'vapjs-unit';      // eslint-disable-line
+var library = 'vapUnit';          // eslint-disable-line
 var config = {                    // eslint-disable-line
   module: {
     loaders: [
